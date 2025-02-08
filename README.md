@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextAuth Full-Stack Authentication Web App
 
-## Getting Started
+## 🚀 Project Overview
+This is a full-stack authentication web application built using **Next.js** and **TypeScript**, featuring secure user authentication with **NextAuth.js**. It includes a **forgot password** feature using **Mailtrap** for email handling and **MongoDB** as the database.
 
-First, run the development server:
+## 🔥 Features
+- 🔑 **User Authentication** using NextAuth.js
+- 📧 **Forgot Password** feature with email verification (Mailtrap)
+- 🛡️ **Secure Authentication** with hashed passwords
+- 📂 **MongoDB Database** for storing user data
+- ⚡ **Fast and Scalable** Next.js app with TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+- **Frontend**: Next.js, TypeScript
+- **Backend**: Next.js API routes, NextAuth.js
+- **Database**: MongoDB (Mongoose ODM)
+- **Email Service**: Mailtrap (for password reset emails)
+- **Authentication**: Credentials-based authentication (NextAuth.js)
+
+## 📌 Installation & Setup
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```sh
+yarn install  # or npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣ Set Up Environment Variables
+Create a `.env.local` file in the root directory and add the following:
+```env
+NEXTAUTH_URL=http://localhost:3000
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_secret_key
+EMAIL_SERVER=smtp://your-mailtrap-username:your-mailtrap-password@smtp.mailtrap.io:2525
+EMAIL_FROM=your-email@example.com
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Run the Application
+```sh
+yarn dev  # or npm run dev
+```
 
-## Learn More
+## 📌 Folder Structure
+```
+/your-repo-name
+│-- pages/
+│   ├── api/
+│   │   ├── auth/
+│   │   ├── reset-password.ts
+│   │   ├── verify.ts
+│   ├── index.tsx
+│   ├── login.tsx
+│   ├── register.tsx
+│-- components/
+│-- lib/
+│-- utils/
+│-- styles/
+│-- .env.local
+│-- package.json
+│-- README.md
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Authentication Workflow
+1. User registers and logs in using credentials (email/password).
+2. NextAuth.js handles secure authentication.
+3. If the user forgets their password, they request a reset link.
+4. A password reset email is sent via **Mailtrap**.
+5. User resets their password using the link received.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚡ API Endpoints
+| Method | Endpoint             | Description                        |
+|--------|----------------------|------------------------------------|
+| POST   | `/api/auth/register` | Registers a new user              |
+| POST   | `/api/auth/login`    | Logs in a user                    |
+| POST   | `/api/auth/logout`   | Logs out the user                 |
+| POST   | `/api/auth/reset-password` | Sends password reset link |
+| POST   | `/api/auth/verify`   | Verifies the reset token          |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📸 Screenshots
+### 🏠 Dashboard
+![Dashboard](assets/dashboard.png)
 
-## Deploy on Vercel
+### 🔐 Signup Page
+![Signup](assets/signup.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔑 Login Page
+![Login](assets/login.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🔄 Forgot Password Page
+![Forgot Password](assets/forgot-password.png)
+
+### ✅ Successful Login Profile Page
+![Profile Page](assets/successful-login.png)
+
+## 👥 Contributing
+Feel free to fork this repository and submit a pull request! 🚀
+
+---
+
+### 📧 Contact
+For any queries or suggestions, reach out at: **vipinsao3@gmail.com**
+
